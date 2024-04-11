@@ -2,7 +2,7 @@ name: test
 
 on:
   push:
-    branches: ["main"]
+    branches: ["test"]
 jobs:
   tests:
     # Задание "tests" зависит от задания "build" и будет выполнено после него
