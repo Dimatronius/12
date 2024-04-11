@@ -1,28 +1,19 @@
 package main
 
 import (
-	"fmt"
-	"sync"
+    "testing"
 )
 
-func main() {
-	var wg sync.WaitGroup
-	wg.Add(5)
+func TestMaxInt(t *testing.T) {
+    a, b := 2, 7
 
-	for i := 0; i < 5; i++ {
-		go func() {
-			fmt.Println(i)
-			wg.Done()
-		}()
-	}
+    res := MaxInt(a, b)
 
-	wg.Wait()
+    if res != b {
+        t.Errorf("expected %d, got %d", b, res)
+    }
 }
 
-func MaxInt(a, b int) int {
-	if a >= b {
-		return a
-	}
-
-	return b
+func TestMain(m *testing.M) {
+    main()
 }
